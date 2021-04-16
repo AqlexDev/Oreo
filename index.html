@@ -4,59 +4,65 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-
+	<title>Oreo</title>
 	<style>
-		.parent {
-			background-color: hsla(200, 100%, 20%);
-			height: 400px;
-			width: 400px;
+		body {
+			background-color: #88CCF1;
 		}
 
-		.child {
-			background-color: red;
-			height: 50%;
-			width: 50%;
-			transition: transform 1s ease-in;
-			animation: left-to-right 1s ease-in forwards infinite;
+		.cookie {
+			position: relative;
+			margin-top: 300px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 520px;
+		}
+		.oreo-top {
+			position: relative;
+			margin-top: -300px;
+			z-index: 0;
+		}
+		.oreo-middle {
+			position: relative;
+			margin-top: -300px;
+			z-index: 0;
+		}
+		.oreo-bottom {
+			position: relative;
+			margin-top: -300px;
+			z-index: 0;
 		}
 
-		.parent:hover .child {
-			animation-play-state: paused;
+		.panel {
+			position: absolute;
+			margin-left: 90%;
+			margin-top: 10px;
 		}
 
-
-		@keyframes left-to-right {
-			0% {
-				transform: translateX(0);
-				background-color: red;
-			}
-
-			25% {
-				transform: translateY(100%);
-				background-color: blue;
-			}
-
-			50% {
-				transform: translateX(100%) translateY(100%);
-				background-color: green;
-			}
-			
-			75% {
-				transform: translateX(100%);
-				background-color: yellow;
-			}
-
-			100% {
-				transform: translate(0)
-			}
-		}
 	</style>
 </head>
 <body>
-	<div class="parent">
-		<div class="child"></div>
+	<div class="cookie">
+		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 12;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 11;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 10;">
+		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 9;">
+		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 8;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 7;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 6;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 5;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 4;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 3;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 2;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 1;">
+		<img class="oreo-bottom" src="/img/oreo-bottom.png" draggable="false" style="z-index: 0;">
+		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: -1;">
 	</div>
 
+	<div class="panel">
+		<button>Add</button>
+		</div>
+
 </body>
+<script src="script.js"></script>
 </html>
