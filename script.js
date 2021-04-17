@@ -12,14 +12,14 @@ cookie.childNodes[2].remove()
 cookie.childNodes[3].remove()
 const title = document.getElementById('title')
 const audio = [
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/rempop.wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (1).wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (2).wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (3).wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (4).wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (5).wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (6).wav'),
-    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (7).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/rempop.wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (1).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (2).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (3).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (4).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (5).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (6).wav'),
+    new Audio('https://gulkoa.github.io/Oreo/sounds/pop (7).wav'),
 ]
 
 var cookieLayers = ['bot', 'mid', 'top']
@@ -119,15 +119,19 @@ randomButton.onclick = () => {
 clearButton.onclick = clearAll
 
 function clearAll() {
-    audio[0].play()
-    for (layer of cookie.childNodes) {
-        layer.classList += ' removing'
+    if (cookieLayers.length >= 1)
+    {
+        audio[0].play()
+        for (layer of cookie.childNodes) {
+            layer.classList += ' removing'
+        }
+        setTimeout(() => {cookie.innerHTML = ''}, 200)
+        title.textContent = ''
+        titleText = ''
+        cookieLayers = []
+        lastLayerIndex = -1
+        footer.style = 'opacity: 1'
     }
-    setTimeout(() => {cookie.innerHTML = ''}, 200)
-    title.textContent = ''
-    titleText = ''
-    cookieLayers = []
-    lastLayerIndex = -1
 }
 
 
