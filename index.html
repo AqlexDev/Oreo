@@ -74,7 +74,7 @@
 			padding: 5px;
 			top: 20%;
 			right: 0px;
-			width: 20%;
+			width: 200px;
 			z-index: 999999;
 			position: fixed;
 			border-radius: 10px;
@@ -83,6 +83,12 @@
 		.add-button {
 			width: 100%;
 			position: relative;
+			transition: all;
+			opacity: 0.8;
+		}
+
+		.add-button:hover {
+			opacity: 1;
 		}
 
 		.rembutton {
@@ -94,6 +100,12 @@
 			border: 0px;
 			color: white;
 			font-size: 150%;
+			opacity: 0.8;
+		}
+
+
+		.rembutton:hover {
+			opacity: 1;
 		}
 
 		footer {
@@ -125,9 +137,9 @@
 
 
 	<div class="panel">
-		<img src="/img/oreo-top-shadow.png" class="add-button" id="addtopButton">
-		<img src="/img/oreo-middle-shadow.png" class="add-button" id="addmidButton">
-		<img src="/img/oreo-bottom-shadow.png" class="add-button" id="addbotButton">
+		<img src="/img/oreo-top-shadow.png" class="add-button" draggable="false" id="addtopButton">
+		<img src="/img/oreo-middle-shadow.png" class="add-button" draggable="false" id="addmidButton">
+		<img src="/img/oreo-bottom-shadow.png" class="add-button" draggable="false" id="addbotButton">
 		<button class="rembutton" id="remButton">Remove</button>
 		</div>
 
