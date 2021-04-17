@@ -8,14 +8,14 @@ cookie.childNodes[1].remove()
 cookie.childNodes[2].remove()
 const title = document.getElementById('title')
 const audio = [
-    new Audio('/sounds/rempop.wav'),
-    new Audio('/sounds/pop (1).wav'),
-    new Audio('/sounds/pop (2).wav'),
-    new Audio('/sounds/pop (3).wav'),
-    new Audio('/sounds/pop (4).wav'),
-    new Audio('/sounds/pop (5).wav'),
-    new Audio('/sounds/pop (6).wav'),
-    new Audio('/sounds/pop (7).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/rempop.wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (1).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (2).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (3).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (4).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (5).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (6).wav'),
+    new Audio('https://aqlexdev.github.io/Oreo/sounds/pop (7).wav'),
 ]
 
 var cookieLayers = ['bot', 'mid', 'top']
@@ -42,21 +42,21 @@ function addlayer(type) {
     const newLayer = document.createElement('img')
     if (type == 'top')
     {
-        newLayer.src = '/img/oreo-top.png'
+        newLayer.src = 'https://aqlexdev.github.io/Oreo/img/oreo-top.png'
         newLayer.classList = 'oreo-top oreo-layer'
         title.textContent = 'o' + title.textContent
         cookieLayers.push('top')
     }
     else if (type == 'mid')
     {
-        newLayer.src = '/img/oreo-middle.png'
+        newLayer.src = 'https://aqlexdev.github.io/Oreo/img/oreo-middle.png'
         newLayer.classList = 'oreo-middle oreo-layer'
         title.textContent = 're' + title.textContent
         cookieLayers.push('mid')
     }
     else if (type == 'bot')
     {
-        newLayer.src = '/img/oreo-bottom.png'
+        newLayer.src = 'https://aqlexdev.github.io/Oreo/img/oreo-bottom.png'
         newLayer.classList = 'oreo-bottom oreo-layer'
         title.textContent = 'o' + title.textContent
         cookieLayers.push('bot')
