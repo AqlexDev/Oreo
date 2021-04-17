@@ -3,6 +3,9 @@ const addmidButton = document.getElementById('addmidButton')
 const addbotbutton = document.getElementById('addmidButton')
 const remButton = document.getElementById('remButton')
 const cookie = document.getElementById('cookie')
+cookie.childNodes[0].remove()
+cookie.childNodes[1].remove()
+cookie.childNodes[2].remove()
 const title = document.getElementById('title')
 
 var cookieLayers = ['bot', 'mid', 'top']
@@ -29,21 +32,21 @@ function addlayer(type) {
     if (type == 'top')
     {
         newLayer.src = '/img/oreo-top.png'
-        newLayer.classList = 'oreo-top'
+        newLayer.classList = 'oreo-top oreo-layer'
         title.textContent = 'o' + title.textContent
         cookieLayers.push('top')
     }
     else if (type == 'mid')
     {
         newLayer.src = '/img/oreo-middle.png'
-        newLayer.classList = 'oreo-middle'
+        newLayer.classList = 'oreo-middle oreo-layer'
         title.textContent = 're' + title.textContent
         cookieLayers.push('mid')
     }
     else if (type == 'bot')
     {
         newLayer.src = '/img/oreo-bottom.png'
-        newLayer.classList = 'oreo-bottom'
+        newLayer.classList = 'oreo-bottom oreo-layer'
         title.textContent = 'o' + title.textContent
         cookieLayers.push('bot')
     }
@@ -57,7 +60,10 @@ function addlayer(type) {
 }
 
 function removeLayer() {
-    cookie.childNodes[0].remove()
+    cookie.childNodes[0].classList += ' removing'
+    setTimeout(() => {
+        cookie.childNodes[0].remove()
+    }, 290)
     if (cookieLayers.pop() == 'mid')
         title.textContent = title.textContent.substring(2)
     else

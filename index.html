@@ -17,20 +17,42 @@
 			margin-right: auto;
 			width: 520px;
 		}
-		.oreo-top {
+
+		.oreo-layer {
 			position: relative;
 			margin-top: -300px;
 			z-index: 0;
+			animation: slideOnTop 0.3s ease;
 		}
-		.oreo-middle {
-			position: relative;
-			margin-top: -300px;
-			z-index: 0;
+		
+
+		.oreo-layer.removing {
+			animation: remove 0.3s ease;
 		}
-		.oreo-bottom {
-			position: relative;
-			margin-top: -300px;
-			z-index: 0;
+
+		
+		@keyframes slideOnTop {
+			0% {
+				opacity: 0.5;
+				transform: translateY(-500px);
+			}
+
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes remove {
+			0% {
+				opacity: 1;
+				transform: translateX(0);
+			}
+
+			100% {
+				opacity: 0;
+				transform: translateX(-300px);
+			}
 		}
 
 		.topbar {
@@ -38,6 +60,7 @@
 			padding: 5px;
 			top: 0;
 			width: 70%;
+			z-index: 999999;
 			margin-left: 15%;
 			margin-right: 15%;
 			position: fixed;
@@ -52,7 +75,7 @@
 			top: 20%;
 			right: 0px;
 			width: 20%;
-			z-index: 100;
+			z-index: 999999;
 			position: fixed;
 			border-radius: 10px;
 		}
@@ -73,6 +96,20 @@
 			font-size: 150%;
 		}
 
+		footer {
+			background: #5EBAEA;
+			height: 50px;
+			width: 100%;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			bottom: 0px;
+			padding: 3px;
+			margin-top: 70%;
+			text-align: center;
+			color: white;
+			display: block;
+		}
+
 	</style>
 </head>
 <body>
@@ -81,10 +118,11 @@
 	</div>
 
 	<div class="cookie" id="cookie">
-		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 2;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 1;">
-		<img class="oreo-bottom" src="/img/oreo-bottom.png" draggable="false" style="z-index: 0;">
+		<img class="oreo-top oreo-layer" src="/img/oreo-top.png" draggable="false" style="z-index: 2;">
+		<img class="oreo-middle oreo-layer" src="/img/oreo-middle.png" draggable="false" style="z-index: 1;">
+		<img class="oreo-bottom oreo-layer" src="/img/oreo-bottom.png" draggable="false" style="z-index: 0;">
 	</div>
+
 
 	<div class="panel">
 		<img src="/img/oreo-top-shadow.png" class="add-button" id="addtopButton">
@@ -92,6 +130,10 @@
 		<img src="/img/oreo-bottom-shadow.png" class="add-button" id="addbotButton">
 		<button class="rembutton" id="remButton">Remove</button>
 		</div>
+
+	<footer> 
+		<p> Made by <a href="https://twitter.com/alex_gulko">Alex Gulko</a> in 2021 </p>
+	</footer>
 
 </body>
 <script src="script.js"></script>
