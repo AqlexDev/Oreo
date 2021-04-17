@@ -7,6 +7,16 @@ cookie.childNodes[0].remove()
 cookie.childNodes[1].remove()
 cookie.childNodes[2].remove()
 const title = document.getElementById('title')
+const audio = [
+    new Audio('/sounds/rempop.wav'),
+    new Audio('/sounds/pop (1).wav'),
+    new Audio('/sounds/pop (2).wav'),
+    new Audio('/sounds/pop (3).wav'),
+    new Audio('/sounds/pop (4).wav'),
+    new Audio('/sounds/pop (5).wav'),
+    new Audio('/sounds/pop (6).wav'),
+    new Audio('/sounds/pop (7).wav'),
+]
 
 var cookieLayers = ['bot', 'mid', 'top']
 var lastLayerIndex = 2
@@ -28,6 +38,7 @@ remButton.onclick = () => {
 }
 
 function addlayer(type) {
+    audio[Math.floor(Math.random() * 7 + 1)].play()
     const newLayer = document.createElement('img')
     if (type == 'top')
     {
@@ -60,14 +71,18 @@ function addlayer(type) {
 }
 
 function removeLayer() {
-    cookie.childNodes[0].classList += ' removing'
-    setTimeout(() => {
-        cookie.childNodes[0].remove()
-    }, 290)
-    if (cookieLayers.pop() == 'mid')
-        title.textContent = title.textContent.substring(2)
-    else
-        title.textContent = title.textContent.substring(1)
-        
-    lastLayerIndex--
+    if (lastLayerIndex >= 0)
+    {
+        audio[0].play()
+        cookie.childNodes[0].classList += ' removing'
+        setTimeout(() => {
+            cookie.childNodes[0].remove()
+        }, 290)
+        if (cookieLayers.pop() == 'mid')
+            title.textContent = title.textContent.substring(2)
+        else
+            title.textContent = title.textContent.substring(1)
+            
+        lastLayerIndex--
+    }
 }
