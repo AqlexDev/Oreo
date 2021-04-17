@@ -8,11 +8,11 @@
 	<style>
 		body {
 			background-color: #88CCF1;
+			font-family: sans-serif;
 		}
-
 		.cookie {
 			position: relative;
-			margin-top: 300px;
+			top: 500px;
 			margin-left: auto;
 			margin-right: auto;
 			width: 520px;
@@ -33,34 +33,64 @@
 			z-index: 0;
 		}
 
+		.topbar {
+			background: #96D4F6;
+			padding: 5px;
+			top: 0;
+			width: 70%;
+			margin-left: 15%;
+			margin-right: 15%;
+			position: fixed;
+			border-radius: 10px;
+			text-align: center;
+			padding: 1px;
+		}
+
 		.panel {
-			position: absolute;
-			margin-left: 90%;
-			margin-top: 10px;
+			background: #96D4F6;
+			padding: 5px;
+			top: 20%;
+			right: 0px;
+			width: 20%;
+			z-index: 100;
+			position: fixed;
+			border-radius: 10px;
+		}
+
+		.add-button {
+			width: 100%;
+			position: relative;
+		}
+
+		.rembutton {
+			width: 90%;
+			height: 90px;
+			margin: 5%;
+			background-color: #B92525;
+			border-radius: 25px;
+			border: 0px;
+			color: white;
+			font-size: 150%;
 		}
 
 	</style>
 </head>
 <body>
-	<div class="cookie">
-		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 12;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 11;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 10;">
-		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 9;">
-		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 8;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 7;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 6;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 5;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 4;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 3;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 2;">
+	<div class="topbar">
+		<h1 id="title">oreo</h1>
+	</div>
+
+	<div class="cookie" id="cookie">
+		<img class="oreo-top" src="/img/oreo-top.png" draggable="false" style="z-index: 2;">
 		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: 1;">
 		<img class="oreo-bottom" src="/img/oreo-bottom.png" draggable="false" style="z-index: 0;">
-		<img class="oreo-middle" src="/img/oreo-middle.png" draggable="false" style="z-index: -1;">
 	</div>
 
 	<div class="panel">
-		<button>Add</button>
+		<img src="/img/oreo-top-shadow.png" class="add-button" id="addtopButton">
+		<img src="/img/oreo-middle-shadow.png" class="add-button" id="addmidButton">
+		<img src="/img/oreo-bottom-shadow.png" class="add-button" id="addbotButton">
+		<button class="rembutton" id="remButton">Remove</button>
 		</div>
 
 </body>
