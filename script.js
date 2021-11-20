@@ -4,6 +4,7 @@ const addbotbutton = document.getElementById('addmidButton')
 const remButton = document.getElementById('remButton')
 const clearButton = document.getElementById('clearButton')
 const randomButton = document.getElementById('randomButton')
+const importButton = document.getElementById('importButton')
 const footer = document.getElementById('footer')
 const cookie = document.getElementById('cookie')
 cookie.childNodes[0].remove()
@@ -134,6 +135,40 @@ function clearAll() {
     }
 }
 
+const importWindowBack = document.getElementById('importWindowBack')
+const importWindow = document.getElementById('importWindow')
+const importSubmitButton = document.getElementById('importSubmitButton')
+const importInput = document.getElementById('importInput')
+
+importButton.onclick = () => {
+    importWindowBack.style.display = "block"
+    importInput.focus()
+}
+importSubmitButton.onclick = () => {
+    if (importInput.value == "")
+        importWindowBack.style.display = "none"
+    else {
+        importWindowBack.style.display = "none"
+        clearAll()
+        setTimeout(() => {
+            parseOreo(importInput.value)
+            importInput.value = ""
+            importSubmitButton.textContent = "Cancel"
+        }, 250)
+    }
+}
+importInput.addEventListener('keydown', (e) => {
+    if (e.key == 'Enter') {
+        importSubmitButton.onclick()
+    }
+  })
+importInput.oninput = () => {
+    if (importInput.value == "")
+        importSubmitButton.textContent = "Cancel"
+    else
+        importSubmitButton.textContent = "Assemble"
+}
+
 
 var titleText = 'oreo'
 function addToTitle(toAdd) {
@@ -154,6 +189,24 @@ function remFromTitle(amount) {
     }
     else
         title.textContent = titleText
+}
+
+function parseOreo(title) {
+    while(title.length > 0) {
+        if (title.substring(title.length - 1, title.length) == 'o') {
+            if (Math.floor(Math.random() * 2))
+                addlayer('top')
+            else
+                addlayer('bot')
+            title = title.substring(0, title.length - 1)
+        }
+        else if (title.length > 1 && (title.substring(title.length - 2, title.length) == 're')) {
+            addlayer('mid')
+            title = title.substring(0, title.length - 2)
+        }
+        else
+            title = title.substring(0, title.length - 1)
+    }
 }
 
 window.onscroll = () => {
