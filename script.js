@@ -97,23 +97,9 @@ function removeLayer() {
     }
 }
 
-function sendNameToGoogle() {
-    const measurement_id = `G-6K8B8MRFQ7`;
-    const api_secret = `7iYtz7KnQdSv9db9Jq79RQ`;
-
-    fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
-    method: "POST",
-    body: JSON.stringify({
-        titleText
-    })
-    });
-
-}
-
 title.onclick = () => {
     var utterance = new SpeechSynthesisUtterance(titleText)
     speechSynthesis.speak(utterance)
-    sendNameToGoogle()
 }
 
 randomButton.onclick = () => {
