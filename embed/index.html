@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oreo</title>
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            body {
+                background-color: white;
+            }
+        </style>
+    </head>
+<body>
+    <h1 id="title" class="topbartitle">oreo</h1>
+    <div class="cookie" id="cookie">
+		<img class="oreo-top oreo-layer" src="https://gulkoa.github.io/Oreo/img/oreo-top.png" draggable="false" style="z-index: 2;">
+		<img class="oreo-middle oreo-layer" src="https://gulkoa.github.io/Oreo/img/oreo-middle.png" draggable="false" style="z-index: 1;">
+		<img class="oreo-bottom oreo-layer" src="https://gulkoa.github.io/Oreo/img/oreo-bottom.png" draggable="false" style="z-index: 0;">
+	</div>
+</body>
+<script src="../script.js"></script>
+<script>
+    cookie.onclick = () => {
+        randomOreo(3, 6)
+    }
+</script>
+</html>

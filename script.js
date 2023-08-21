@@ -1,17 +1,10 @@
-const addtopButton = document.getElementById('addtopButton')
-const addmidButton = document.getElementById('addmidButton')
-const addbotbutton = document.getElementById('addmidButton')
-const remButton = document.getElementById('remButton')
-const clearButton = document.getElementById('clearButton')
-const randomButton = document.getElementById('randomButton')
-const importButton = document.getElementById('importButton')
-const footer = document.getElementById('footer')
 const cookie = document.getElementById('cookie')
+const title = document.getElementById('title')
+const footer = document.getElementById('footer')
 cookie.childNodes[0].remove()
 cookie.childNodes[1].remove()
 cookie.childNodes[2].remove()
 cookie.childNodes[3].remove()
-const title = document.getElementById('title')
 const audio = [
     new Audio('https://gulkoa.github.io/Oreo/sounds/rempop.wav'),
     new Audio('https://gulkoa.github.io/Oreo/sounds/pop (1).wav'),
@@ -26,21 +19,6 @@ const audio = [
 var cookieLayers = ['bot', 'mid', 'top']
 var lastLayerIndex = 2
 
-addtopButton.onclick = () => {
-    addlayer('top')
-}
-
-addmidButton.onclick = () => {
-    addlayer('mid')
-}
-
-addbotButton.onclick = () => {
-    addlayer('bot')
-}
-
-remButton.onclick = () => {
-    removeLayer()
-}
 
 function addlayer(type) {
     audio[Math.floor(Math.random() * 7 + 1)].play()
@@ -75,9 +53,9 @@ function addlayer(type) {
     lastLayerIndex++
 
     if (window.scrollY + 10 > window.scrollMaxY)
-    footer.style = 'opacity: 1'
+    setFooterOpacity(1)
     else
-    footer.style = 'opacity: 0'
+    setFooterOpacity(0)
 }
 
 function removeLayer() {
@@ -97,25 +75,12 @@ function removeLayer() {
     }
 }
 
+
 title.onclick = () => {
     var utterance = new SpeechSynthesisUtterance(titleText)
     speechSynthesis.speak(utterance)
 }
 
-randomButton.onclick = () => {
-    clearAll()
-    setTimeout(() => {
-    const amountOfLayers = Math.floor(Math.random() * 5 + 2)
-    const types = ['bot', 'mid', 'top']
-    for (let i = 0; i < amountOfLayers; i++)
-    {
-        let type = Math.floor(Math.random() * 3)
-        addlayer(types[type])
-    }
-    }, 250)
-}
-
-clearButton.onclick = clearAll
 
 function clearAll() {
     if (cookieLayers.length >= 1)
@@ -129,42 +94,8 @@ function clearAll() {
         titleText = ''
         cookieLayers = []
         lastLayerIndex = -1
-        footer.style = 'opacity: 1'
+        setFooterOpacity(1)
     }
-}
-
-const importWindowBack = document.getElementById('importWindowBack')
-const importWindow = document.getElementById('importWindow')
-const importSubmitButton = document.getElementById('importSubmitButton')
-const importInput = document.getElementById('importInput')
-
-importButton.onclick = () => {
-    importWindowBack.style.display = "block"
-    importInput.focus()
-}
-importSubmitButton.onclick = () => {
-    if (importInput.value == "")
-        importWindowBack.style.display = "none"
-    else {
-        importWindowBack.style.display = "none"
-        clearAll()
-        setTimeout(() => {
-            parseOreo(importInput.value)
-            importInput.value = ""
-            importSubmitButton.textContent = "Cancel"
-        }, 250)
-    }
-}
-importInput.addEventListener('keydown', (e) => {
-    if (e.key == 'Enter') {
-        importSubmitButton.onclick()
-    }
-  })
-importInput.oninput = () => {
-    if (importInput.value == "")
-        importSubmitButton.textContent = "Cancel"
-    else
-        importSubmitButton.textContent = "Assemble"
 }
 
 
@@ -207,9 +138,28 @@ function parseOreo(title) {
     }
 }
 
+function randomOreo(minLayers, maxLayer) {
+    clearAll()
+    setTimeout(() => {
+        const amountOfLayers = Math.floor(Math.random() * (maxLayer - minLayers + 1) + minLayers)
+        const types = ['bot', 'mid', 'top']
+        for (let i = 0; i < amountOfLayers; i++)
+        {
+            let type = Math.floor(Math.random() * 3)
+            addlayer(types[type])
+        }
+    }, 250)
+}
+
 window.onscroll = () => {
     if (window.scrollY + 10 > window.scrollMaxY)
-        footer.style = 'opacity: 1'
+        setFooterOpacity(1)
     else
-        footer.style = 'opacity: 0'
+        setFooterOpacity(0)
+}
+
+function setFooterOpacity(opacity) {
+    if (footer) {
+        footer.style = 'opacity: ' + opacity
+    }
 }
